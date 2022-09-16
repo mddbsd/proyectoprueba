@@ -14,7 +14,7 @@
     <%
         Class.forName("com.mysql.jdbc.Driver");
         Connection conexion = DriverManager.getConnection("jdbc:mysql://localhost:3306/prueba1"
-        ,"root", "");
+        ,"usuario", "admin");
         Statement a = conexion.createStatement();
         Statement s = conexion.createStatement();
         ResultSet listado = s.executeQuery ("SELECT * FROM alumnos");
