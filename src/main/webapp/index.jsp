@@ -13,18 +13,13 @@
         <h1>Listado de alumnos</h1>
     <%
         Class.forName("com.mysql.jdbc.Driver");
-        Connection conexion = DriverManager.getConnection("jdbc:mysql://localhost:3306/prueba1"
+        Connection conexion = DriverManager.getConnection("jdbc:mysql://localhost:3306/chrono"
         ,"root", "");
-        Statement a = conexion.createStatement();
         Statement s = conexion.createStatement();
-        ResultSet listado = s.executeQuery ("SELECT * FROM alumnos");
-        ResultSet listadoh = a.executeQuery ("SELECT * FROM horarios");
+        ResultSet listado = s.executeQuery ("SELECT * FROM rango");
         while (listado.next()) {
-            out.println(listado.getString("matricula") + " " + listado.getString("apyn") + " " + listado.getString("dni") + "<br>");
+            out.println(listado.getString("id_curso") + " " + listado.getString("hora_inicio") + " " + listado.getString("hora_fin") + "<br>");
         }
-        while (listadoh.next()) {
-            out.println(listadoh.getString("hora_inicio") + listadoh.getString("hora_salida") + "<br>");
-    }
         conexion.close();
     %>
     </body>
