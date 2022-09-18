@@ -4,6 +4,7 @@
  */
 
 package funciones;
+import java.sql.ResultSet;
 import java.time.LocalDate;
 import java.time.LocalTime;
 import java.time.temporal.ChronoField;
@@ -22,10 +23,12 @@ public class ComparaTiempos {
         LocalTime tiempoFin = LocalTime.parse(tf);
         LocalTime tiempoUsuario = LocalTime.parse(hu);
         
-        if (tiempoUsuario.isAfter(tiempoInicio) && tiempoUsuario.isBefore(tiempoFin)){
+        if (tiempoUsuario.isAfter(tiempoInicio) && tiempoUsuario.isBefore(tiempoFin) || tiempoUsuario.equals(tiempoInicio)){
             return true;
         } else {
             return false;
         }
     }
+
+    public static void nada (){}
 }
