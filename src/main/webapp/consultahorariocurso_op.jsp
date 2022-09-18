@@ -17,6 +17,7 @@
         Connection conexion = DriverManager.getConnection("jdbc:mysql://localhost:3306/chrono"
         ,"root", "");
         Statement s = conexion.createStatement();
+        
         request.setCharacterEncoding("UTF-8");
         ResultSet listado = s.executeQuery ("SELECT rango.dia AS dia, "
           + "                                       curso.nombre_curso AS nombre_curso, "
