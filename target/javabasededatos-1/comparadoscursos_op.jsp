@@ -48,7 +48,8 @@
             + "AND curso.nombre_curso= '" + request.getParameter("curso2") 
             + "' ORDER BY FIELD(dia, 'lunes','martes','miercoles','jueves','viernes')");
         
-        /*ResultSet listaCurso2X= b.executeQuery("SELECT rango.dia AS dia, "
+        /*//CONSULTA GENERICA PARA COPIAR
+        ResultSet listaCurso2X= b.executeQuery("SELECT rango.dia AS dia, "
             + "curso.nombre_curso AS nombre_curso, "
             + "rango.dia AS dia,"
             + "rango.hora_inicio AS hora_inicio, "
@@ -64,7 +65,10 @@
             out.print("DIA DEL CURSO1 " + listaCurso1.getString("dia") + "</br>");
             while (listaCurso2.next()){
                 if (listaCurso1.getString("dia").equals(listaCurso2.getString("dia"))){
-                    if (ComparaTiempos.compara(listaCurso1.getString("hora_inicio"), listaCurso2.getString("hora_inicio"), listaCurso2.getString("hora_fin"))){
+                    if (ComparaTiempos.compara(listaCurso1.getString("hora_inicio"), 
+                        listaCurso2.getString("hora_inicio"), 
+                        listaCurso2.getString("hora_fin")))
+                    {
                         out.print("no se puede ubicar el dia " + listaCurso2.getString("dia") + "</br>");                
                     }else{
                         out.print("se puede ubicar " + listaCurso2.getString("dia") + "</br>");
@@ -73,7 +77,7 @@
 
                 }
             }
-            listaCurso2.beforeFirst();
+            listaCurso2.beforeFirst(); //rebobina el ResultSet
         }
         
         
